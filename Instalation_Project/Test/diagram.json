@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Tirta Nurrochman Bintang Prawira (Rochmen)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 100,
+      "left": 100,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 100,
+      "left": 170,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 100,
+      "left": 30,
+      "attrs": {}
+    }
+  ],
+"connections": [
+  [ "vcc1:VCC", "led1:A", "red", [ "h0" ] ],
+  [ "led1:C", "r1:1", "green", [ "h0" ] ],
+  [ "r1:2", "esp:12", "green", [ "h40", "v-100" ] ],
+  [ "esp:TX", "$serialMonitor:RX", "", [] ],
+  [ "esp:RX", "$serialMonitor:TX", "", [] ]
+],
+  "dependencies": {}
+}
